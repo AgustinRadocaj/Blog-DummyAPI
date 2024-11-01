@@ -1,29 +1,58 @@
 import React from 'react'
 import PostCard from '../postCard/postCard'
 import { useState, useEffect } from 'react'
-import { getPosts } from '../../services/apiService'
+import { getPosts, getPostsByTag } from '../../services/apiService'
 import styles from './PostDisplay.module.css'
 
 function PostDisplay() {
 
     const [posts, setPosts] = useState([])
+    const [search, setSearch] = useState('')
+    const [filteredPosts, setFilteredPosts] = useState([])
+
+
+    const searchHandler = (event) => {
+      const searchTag = event.target.value;
+      setSearch(searchTag);
+      const postByTag = async () => {
+        try {
+          const response = await getPostsByTag(searchTag);
+          setFilteredPosts(response.data);
+        } catch (error) {
+          setError('Hubo un problema al cargar los posts');
+        }
+      }
+
+      postByTag();
+  };
 
   useEffect(() => {
     const loadPosts = async () => {
             try {
                 const response = await getPosts();
                 setPosts(response.data);
+                setFilteredPosts(response.data);
             } catch (error) {
                 setError('Hubo un problema al cargar los posts');
             }
         };
-
         loadPosts();
   }, [])
   
   return (
+    <>
+    <div>
+      <input           
+        type="text"
+        placeholder="Filtrar por tag" 
+        value={search} 
+        onChange={searchHandler}
+      />
+
+      <button><a href="/users">Users</a></button>
+    </div>
     <div className={styles.container}>
-      {posts.map((post) => (
+      {filteredPosts.map((post) => (
         <PostCard key={post.id}
         id={post.id}
         postOwner={post.owner}
@@ -32,6 +61,7 @@ function PostDisplay() {
         postTags={post.tags} />
           ))}
     </div>
+    </>
   )
 }
 
