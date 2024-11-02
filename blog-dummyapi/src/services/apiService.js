@@ -33,10 +33,10 @@ export const getPostsByTag = async(tag) => {
 
 export const getUsers = async() => {
     try {
-        const response = await apiService.get('/user?limit=21')
+        const response = await apiService.get('/user?limit=40')
         const users = response.data
         return users
     } catch (error) {
-        console.log('error al obtener los posts', error)
+        console.log('error al obtener los users', error)
     }
 }

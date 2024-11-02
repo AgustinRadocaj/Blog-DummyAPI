@@ -1,0 +1,17 @@
+.container {
+    display: flex;  
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #f0f0f0;
+    heigth: 150px;
+    width: 350px;
+    margin: 20px;
+}
+
+.userImage {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}

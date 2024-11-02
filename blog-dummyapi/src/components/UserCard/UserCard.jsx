@@ -1,8 +1,11 @@
 import React from 'react'
-
-function UserCard() {
+import styles from './UserCard.module.css'
+function UserCard({image, name}) {
   return (
-    <div>UserCard</div>
+    <div className={styles.container}>
+        <img className={styles.userImage} src={image} alt="user image" />
+        <h1 className={styles.userName}>{name}</h1> 
+    </div>  
   )
 }
 
