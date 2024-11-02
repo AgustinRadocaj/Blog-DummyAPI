@@ -1,7 +1,7 @@
-// src/components/Login/Login.js
 import React from 'react';
-import { auth, provider } from '../../firebase'; // Asegúrate de que la ruta sea correcta
+import { auth, provider } from '../../firebase';
 import { signInWithPopup } from "firebase/auth";
+import styles from './Login.module.css';
 
 function Login() {
     const handleLogin = async () => {
@@ -16,7 +16,7 @@ function Login() {
 
   return (
     <div>
-      <button onClick={handleLogin}>Iniciar sesión con Google</button>
+      <button className={styles.button} onClick={handleLogin}>Iniciar sesión con Google</button>
     </div>
   );
 }

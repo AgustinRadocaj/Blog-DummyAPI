@@ -3,10 +3,11 @@
     flex-direction: row;
     align-items: center;
     gap: 10px;
-    border: 1px solid #f0f0f0;
+    padding: 10px;
     heigth: 150px;
     width: 350px;
     margin: 20px;
+    box-shadow: 1px 1px 1px white;
 }
 
 .userImage {

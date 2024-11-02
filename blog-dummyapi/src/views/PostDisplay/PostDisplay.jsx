@@ -1,5 +1,5 @@
 import React from 'react'
-import PostCard from '../postCard/postCard'
+import PostCard from '../../components/PostCard/PostCard'
 import { useState, useEffect } from 'react'
 import { getPosts, getPostsByTag } from '../../services/apiService'
 import styles from './PostDisplay.module.css'
@@ -41,15 +41,14 @@ function PostDisplay() {
   
   return (
     <>
-    <div>
-      <input           
+    <div className={styles.wrapper}>
+      <input 
+        className={styles.input}          
         type="text"
         placeholder="Filtrar por tag" 
         value={search} 
         onChange={searchHandler}
       />
-
-      <button><a href="/users">Users</a></button>
     </div>
     <div className={styles.container}>
       {filteredPosts.map((post) => (
