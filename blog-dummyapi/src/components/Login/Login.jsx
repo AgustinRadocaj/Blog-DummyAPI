@@ -4,13 +4,15 @@ import { auth, provider } from '../../firebase'; // Asegúrate de que la ruta se
 import { signInWithPopup } from "firebase/auth";
 
 function Login() {
-  const handleLogin = async () => {
-    try {
-      await signInWithPopup(auth, provider);
-    } catch (error) {
-      console.error("Error durante el inicio de sesión:", error);
-    }
-  };
+    const handleLogin = async () => {
+        try {
+          console.log("Attempting to log in...");
+          const result = await signInWithPopup(auth, provider);
+          console.log("Login successful:", result);
+        } catch (error) {
+          console.error("Error during login:", error);
+        }
+      };
 
   return (
     <div>

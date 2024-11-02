@@ -7,14 +7,12 @@ import Nav from './components/Nav/Nav';
 import PrivateRoute from './components/PrivateRoute'; 
 import AuthProvider from './contexts/AuthContext';
 function App() {
-  
   return (
-    <>
     <AuthProvider>
-    <Nav />
-    <Routes>
-      <Route path='/' element={<PostDisplay />} />
-      <Route 
+      <Nav />
+      <Routes>
+        <Route path='/' element={<PostDisplay />} />
+        <Route 
           path='/users' 
           element={
             <PrivateRoute>
@@ -22,11 +20,9 @@ function App() {
             </PrivateRoute>
           } 
         />
-      <Route path='/post/:id' element={<PostDetail />} />
-    </Routes>
+        <Route path='/post/:id' element={<PostDetail />} />
+      </Routes>
     </AuthProvider>
-    </>
-  )
+  );
 }
-
 export default App

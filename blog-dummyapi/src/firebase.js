@@ -2,14 +2,14 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyD5SlalASw3Gx8VGLd81TluW9yKcmS1TA0",
-    authDomain: "blog-bb205.firebaseapp.com",
-    projectId: "blog-bb205",
-    storageBucket: "blog-bb205.firebasestorage.app",
-    messagingSenderId: "32040655826",
-    appId: "1:32040655826:web:254a84789c1f837d18c60b",
-    measurementId: "G-SQLN3QHH10"
-  };
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+};
   
   const app = initializeApp(firebaseConfig);
   
